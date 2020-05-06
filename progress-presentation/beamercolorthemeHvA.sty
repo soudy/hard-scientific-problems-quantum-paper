@@ -1,0 +1,66 @@
+\mode<presentation>
+
+\DeclareOptionBeamer{maincolor}{\def\beamer@colorthemeHvA@maincolor{#1}}
+\ExecuteOptionsBeamer{maincolor=hva-blauw}
+\ProcessOptionsBeamer
+
+
+%%%%%%% Kleuren
+% Primaire HvA kleuren
+\definecolor{hva-blauw}{RGB}{37, 22, 122}
+\definecolor{hva-zwart}{RGB}{0, 0, 0}
+\definecolor{hva-wit}{RGB}{255, 255, 255}
+% Secundaire HvA kleuren
+\definecolor{hva-licht-blauw}{RGB}{0, 167, 211}
+\definecolor{hva-donker-blauw}{RGB}{45, 108, 192}
+\definecolor{hva-groen}{RGB}{112, 161, 0}
+\definecolor{hva-bordeaux-rood}{RGB}{137, 6, 86}
+\definecolor{hva-oranje}{RGB}{239, 116, 29}
+\definecolor{hva-geel}{RGB}{255, 210, 0}
+\definecolor{hva-rood}{RGB}{211, 17, 69}
+
+
+\colorlet{maincolor}{\beamer@colorthemeHvA@maincolor}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% Define colors
+\definecolor{bgarea}{RGB}{236,236,236}
+\definecolor{bgdarker}{RGB}{180,180,180}
+% Text colors
+\setbeamercolor{normal text}{fg=hva-zwart, bg=}
+\setbeamercolor{alerted text}{fg=maincolor}
+% Colors on title page
+\setbeamercolor{title}{bg=white, fg=\beamer@themeHvA@maincolor}
+\setbeamercolor{subtitle}{bg=white, fg=hva-zwart}
+\setbeamercolor{institute}{fg=hva-zwart}  % bg is ignored by title page
+\setbeamercolor{author}{fg=white} % bg is ignored by title page
+\setbeamercolor*{date}{parent=author} % bg is ignored by title page
+% Color of backgrounds
+\setbeamercolor{background canvas}{bg=hva-wit}
+\setbeamercolor{background}{fg=hva-zwart, bg=bgarea}
+% Color of frame title elements
+\setbeamercolor{frametitle}{bg=, fg=\beamer@themeHvA@maincolor}
+\setbeamercolor{framesubtitle}{parent=frametitle}
+% Color of footline elements
+\setbeamercolor{footline}{bg=,fg=maincolor}
+\setbeamercolor*{page number in head/foot}{parent=footline}
+\setbeamercolor*{section in head/foot}{parent=footline}
+% Color of block elements
+\setbeamercolor{block body}{bg=gray!10, fg=hva-zwart}
+\setbeamercolor{block title}{bg=hva-blauw, fg=white}
+\setbeamercolor{block body example}{bg=gray!10, fg=hva-zwart}
+\setbeamercolor{block title example}{bg=maincolor, fg=white}
+\setbeamercolor{block body alerted}{bg=gray!10, fg=hva-zwart}
+\setbeamercolor{block title alerted}{bg=hva-rood, fg=white}
+% Color of list items
+\setbeamercolor{enumerate item}{bg=gray!10,fg=hva-zwart}
+\setbeamercolor{enumerate subitem}{bg=gray!10,fg=hva-zwart}
+\setbeamercolor{enumerate subsubitem}{bg=gray!10,fg=hva-zwart}
+\setbeamercolor{section in toc}{fg=hva-zwart, bg=}
+% Other colors
+\setbeamercolor{qed symbol}{fg=maincolor}
+\setbeamercolor{caption}{fg=hva-zwart, bg=}
+\setbeamercolor{caption name}{fg=maincolor, bg=}
+
+\mode<all>
