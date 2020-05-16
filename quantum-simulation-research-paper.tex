@@ -22,6 +22,7 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
 %\usepackage{multicol}		% Multiple columns (Method B)
 \usepackage{complexity}
 \usepackage{dirtytalk}
+\usepackage{tabularx}
 
 \usepackage[backend=biber,alldates=iso8601]{biblatex}
 
@@ -38,6 +39,9 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
 \titlespacing\section{0pt}{12pt plus 3pt minus 3pt}{1pt plus 1pt minus 1pt}
 \titlespacing\subsection{0pt}{10pt plus 3pt minus 3pt}{1pt plus 1pt minus 1pt}
 \titlespacing\subsubsection{0pt}{8pt plus 3pt minus 3pt}{1pt plus 1pt minus 1pt}
+
+% Centered X column
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 %%%%%%%%%%%%%%%%   Title   %%%%%%%%%%%%%%%%
 \title{Solving Hard Scientific Problems Using Quantum Computers}
@@ -149,7 +153,7 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     Where do quantum algorithms fit in these complexity classes?
     We define $\BQP$ (bounded-error quantum polynomial time) to be the class off all problems which can be solved in polynomial time on a quantum computer, where a bounded probability error of at most 1/3 is allowed~\cite{nielsen-chuang}.
     A corresponding complexity class for classical probabilistic computers is $\BPP$ (bounded-error polynomial time).
-    We know that quantum computers can solve some problems in polynomial time that classical probabilistic computers cannot, so $\BPP \neq \BQP$ and $\BPP \subseteq \BQP$~\cite{bernstein1997quantum}.
+    We know that quantum computers can solve some problems in polynomial time that classical probabilistic computers cannot, so $\BPP \subseteq \BQP$~\cite{bernstein1997quantum}.
     It is still uncertain where $\BQP$ exactly fits with respect to $\P$ and $\NP$.
     What we do know is that quantum computers can solve all problems in $\P$ in polynomial time~\cite{bennett1973logical}.
     That is, a quantum computer can solve all problems in polynomial time that a classical computer can.
@@ -163,6 +167,36 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
         \caption{A diagram illustrating the hierarchy of several important complexity classes. The exact relation between $\NP$ and $\BQP$ is not yet known. Image by MIT OpenCourseWare.}
     \end{figure}
 
+    \subsection{Quantum Speedups}
+    We talk about a quantum speedup if there exists a quantum algorithm that is more efficient than any known classical algorithm.
+    It is useful to distinguish between two different kind of speedups: polynomial speedups and superpolynomial speedups.
+    The holy grail of quantum computing is a superpolynomial speedup.
+    This means there is an efficient quantum algorithm for a problem that is hard for classical computers.
+    Polynomial speedups are less powerful, but still practically useful.
+    For example, unstructured database search takes $O(n)$ time on a classical computer, but using Grover's algorithm we can do it in $O(\sqrt{n})$ time on a quantum computer~\cite{grover1996fast}.
+    This is a quadratic speedup, but the time taken by the quantum algorithm is still linear in $n$.
+    A superpolynomial speedup would give us a time complexity of $O(\log{n})$, which is more desirable.
+    For the database search problem, we know that $O(\sqrt{n})$ is the best we can do~\cite{bennett1997strengths}.
+    This is another reminder of the limitations of quantum computers: we cannot expect superpolynomial speedups for all algorithms, and even polynomial speedups are not just up for grabs.
+    
+    \begin{table}[ht]
+        {\renewcommand{\arraystretch}{1.2}
+            \begin{tabularx}{\columnwidth}{c|c|Y}
+                \hline
+                Algorithm & Quantum Speedup & Technique \\
+                \hline
+                Factoring & Superpolynomial & \cite{shor-factoring} \\
+                Quantum Simulation & Superpolynomial &
+                \cite{zalka1998efficient, lloyd1996universal, aspuru2005simulated} \\
+                Searching & Polynomial & \cite{grover1996fast} \\
+                Constraint Satisfaction & Polynomial & \cite{ambainis2005quantum} \\
+                 \hline
+            \end{tabularx}
+        }
+        \caption{A non-exhaustive list of some important algorithms that have a quantum speedup. For a more detailed list of quantum speedups see~\cite{jordan2011quantum}.}
+        \label{table:quantum-classic-efficiency}
+    \end{table}
+
     \section{Quantum Computing for Scientific Problems} \label{sec:quantum-science}
     While we are still in the very early stage of quantum hardware development, theorists have been finding applications in a variation of (scientific) fields.
     As of writing this, we are currently in the noisy intermediate-scale quantum (NISQ) era of quantum hardware~\cite{preskill2018quantum}.
@@ -175,8 +209,8 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     Quantum chemistry is probably the most promising application for quantum computing, both for NISQ and fault-tolerant quantum computers.
     Since the founding of the field of quantum mechanics, we have been able to describe the state of a quantum-mechanical system by solving the Schr{\"o}dinger equation~\cite{griffiths2018introduction}.
     However, the complexity of a quantum system grows exponentially with the number of particles.
-    As ~\textcite{dirac1929quantum} noted: \say{\emph{The exact application of these laws leads to equations much too complicated to be soluble.}}
     This makes classical computers unfit for simulating quantum systems efficiently.
+    As~\textcite{dirac1929quantum} noted: \say{\emph{The exact application of these laws leads to equations much too complicated to be soluble.}}
 
     It is believed that quantum computers will have applications in chemistry, biology, drug discovery, and materials science~\cite{mcardle2018quantum}.
     Several quantum algorithms have been proposed to solve problems in chemistry more efficiently~\cite{lidar1999calculating, kassal2008polynomial, aspuru2005simulated, vqe}.
@@ -191,6 +225,8 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     It greatly reduces the quantum resources required by using classical optimization methods combined with a short quantum subroutine for measuring the expectation value of a Hamiltonian.
     The QPE and VQE algorithms can more generally be described as finding eigenvalues of a unitary operator.
     This has use cases outside chemistry such as determining the results of internet search engines~\cite{page1999pagerank}, and designing new materials and drugs~\cite{golub2000eigenvalue}.
+    
+    \subsection{Machine Learning}
     
     \section{Conclusion} \label{sec:conclusion}
     
