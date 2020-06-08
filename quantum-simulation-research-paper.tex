@@ -63,25 +63,31 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
         \maketitle
         
         \begin{abstract}
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum. Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. 
+            Quantum computers use quantum mechanical effects such as superposition, entanglement, and interference to perform computations.
+            They promise to solve certain problems more efficient than classical computers.
+            Most significantly, they can solve problems we previously thought to be in $\NP$ in polynomial time.
+            These kind of (super-) polynomial quantum speedups have applications for problems in scientific fields such as chemistry, machine learning and cryptography.
+            This paper provides a look at the theory of quantum computation and quantum complexity, and how quantum computers can be used to help solve scientific problems.
+            \\
+            \\
+            \\
         \end{abstract}
-        \vspace{0.35cm}
         
     \end{@twocolumnfalse}
     ]
-    
+
     \section{Introduction}
     The idea of a quantum computer was first proposed by Richard Feynman in 1982~\cite{feynman-simulating}.
     Feynman suggested we use a computer that made use quantum mechanical phenomena to solve problems in physics and chemistry intractable by classical computers.
     He remarked \say{If you want to make a simulation of nature, you'd better make it quantum mechanical, and by golly it's a wonderful problem, because it doesn't look so easy.}
-    In 1994, Peter Shor introduced Shor's algorithm: a quantum algorithm for factoring integers and computing discrete logarithms that was exponentially faster than any known classical algorithm~\cite{shor-factoring}.\footnote{Note that this does not mean that there is no similarly efficient classical algorithm that we just have not found yet.}
+    In 1994, Peter Shor introduced Shor's algorithm: a quantum algorithm for factoring integers and computing discrete logarithms that is exponentially faster than any known classical algorithm~\cite{shor-factoring}.\footnote{Note that this does not mean that there is no similarly efficient classical algorithm that we just have not found yet.}
     The discovery of such a speedup, among others, resulted in the field of quantum computation and information.
     Since then, the field of quantum computation and information has made significant progress with applications in the fields of chemistry~\cite{mcardle2018quantum}, cryptography~\cite{bennett2014quantum}, and machine learning~\cite{oud2019simulation}.
     
     Quantum computers are no longer just a theory, like they were when proposed back in 1982.
     Companies such as Google and IBM are building actual quantum computers~\cite{google-quantum, ibm-quantum}.
     These are very small and error-prone quantum computers, but quantum computers nonetheless.
-    Google recently demonstrated ``quantum supremacy" with their Sycamore quantum processor~\cite{arute2019quantum}.
+    Google recently demonstrated ``quantum supremacy'' with their Sycamore quantum processor~\cite{arute2019quantum}.
     This means they have experimentally proven that a quantum computer can do some computation efficiently that classical computers cannot.
     This is an important milestone to reach to demonstrate the possible power of quantum computers and stimulate future research.
     
@@ -175,7 +181,7 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     Polynomial speedups are less powerful, but still practically useful.
     For example, unstructured database search takes $O(n)$ time on a classical computer, but using Grover's algorithm we can do it in $O(\sqrt{n})$ time on a quantum computer~\cite{grover1996fast}.
     This is a quadratic speedup, but the time taken by the quantum algorithm is still linear in $n$.
-    A superpolynomial speedup would give us a time complexity of $O(\log{n})$, which is more desirable.
+    A superpolynomial speedup could give us a time complexity of $O(\log{n})$, which is exponentially more efficient.
     For the database search problem, we know that $O(\sqrt{n})$ is the best we can do~\cite{bennett1997strengths}.
     This is another reminder of the limitations of quantum computers: we cannot expect superpolynomial speedups for all algorithms, and even polynomial speedups are not just up for grabs.
     
@@ -210,7 +216,7 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     Since the founding of the field of quantum mechanics, we have been able to describe the state of a quantum-mechanical system by solving the Schr{\"o}dinger equation~\cite{griffiths2018introduction}.
     However, the complexity of a quantum system grows exponentially with the number of particles.
     This makes classical computers unfit for simulating quantum systems efficiently.
-    As~\textcite{dirac1929quantum} noted: \say{\emph{The exact application of these laws leads to equations much too complicated to be soluble.}}
+    As~\textcite{dirac1929quantum} noted: \say{The exact application of these laws leads to equations much too complicated to be soluble.}
 
     It is believed that quantum computers will have applications in chemistry, biology, drug discovery, and materials science~\cite{mcardle2018quantum}.
     Several quantum algorithms have been proposed to solve problems in chemistry more efficiently~\cite{lidar1999calculating, kassal2008polynomial, aspuru2005simulated, vqe}.
@@ -227,8 +233,27 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     This has use cases outside chemistry such as determining the results of internet search engines~\cite{page1999pagerank}, and designing new materials and drugs~\cite{golub2000eigenvalue}.
     
     \subsection{Machine Learning}
+    Machine learning is the study of algorithms capable of learning to perform certain tasks.
+    Instead of being explicitly programmed to perform a certain task, machine learning algorithms learn by analyzing large amounts of data.
+    It is being used in scientific fields including but not limited to biology~\cite{baldi2001bioinformatics}, chemistry~\cite{noordik2004cheminformatics}, astrophysics~\cite{baron2019machine} and quantum physics~\cite{torlai2017many}.
+    
+    Building a machine learning model is often a computationally heavy task involving a large amount of data that needs to be processed, and the optimization problems involved are often $\NP$-hard to solve~\cite{jain2017non}.
+    Recent advances in quantum computing suggest that machine learning algorithms may be susceptible to a quantum speedup~\cite{lee2019experimental, gao2018quantum, yoo2014quantum, biamonte2017quantum}.
+    \textcite{harrow2009quantum} introduced an efficient quantum algorithm for solving systems of linear equations.
+    This has applications for machine learning algorithms such as $k$-means clustering~\cite{lloyd2013quantum}, linear regression~\cite{schuld2016prediction, yu2017improved}, and support vector machines~\cite{rebentrost2014quantum}.
+    
+    Variational quantum machine learning algorithms have shown the ability to perform machine learning tasks on NISQ devices.
+    Promising results have been shown with clustering~\cite{otterbach2017unsupervised}, quantum support vector machines~\cite{havlivcek2019supervised, schuld2019quantum}, quantum Boltzmann machines~\cite{verdon2017quantum, anschuetz2019realizing}, and quantum neural networks~\cite{qnn-near-term}.
+    
     
     \section{Conclusion} \label{sec:conclusion}
+    Quantum computers are a promising technology of the near future that can help us solve hard scientific problems.
+    While we are in the early stage of quantum hardware development, research suggests a number of interesting quantum algorithms that give a (super-) polynomial speedup over classical algorithms.
+    The most obvious scientific field where quantum computers can be applied is in chemistry, to simulate nature efficiently and help the development of drugs and materials.
+    Another promising application of quantum computing is machine learning.
+    The fields of machine learning and chemistry may even benefit from NISQ devices for certain problems.
+    While we are far away from building a full-blown fault-tolerant quantum computer capable of implementing all the promising quantum algorithms, the progress so far in both theory and practice has been promising.
+    We may see quantum computers have a real-world impact soon already with the rapid improvement of NISQ devices.
     
     \printbibliography
 \end{document}
