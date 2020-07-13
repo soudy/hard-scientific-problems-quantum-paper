@@ -2,31 +2,27 @@
 
 \usepackage{preprint}
 
-%% Math packages
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
-
-%% General packages
-\usepackage[utf8]{inputenc}	% allow utf-8 input
-\usepackage[T1]{fontenc}	% use 8-bit T1 fonts
-\usepackage{xcolor}		% colors for hyperlinks
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
 \usepackage[colorlinks = true,
 linkcolor = purple,
 urlcolor  = blue,
 citecolor = cyan,
-anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
-\usepackage{booktabs} 		% professional-quality tables
-\usepackage{nicefrac}		% compact symbols for 1/2, etc.
-\usepackage{microtype}		% microtypography
-\usepackage{lineno}		% Line numbers
-\usepackage{float}			% Allows for figures within multicol
-%\usepackage{multicol}		% Multiple columns (Method B)
+anchorcolor = black]{hyperref}
+\usepackage{booktabs}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{lineno}
+\usepackage{float}
 \usepackage{complexity}
 \usepackage{dirtytalk}
 \usepackage{tabularx}
 
 \usepackage[backend=biber,alldates=iso8601]{biblatex}
 
-\bibliography{quantum-simulation-research-paper}
+\bibliography{hard-scientific-problems-quantum}
 
 %% Special figure caption options
 \usepackage{newfloat}
@@ -43,10 +39,8 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
 % Centered X column
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-%%%%%%%%%%%%%%%%   Title   %%%%%%%%%%%%%%%%
 \title{Solving Hard Scientific Problems Using Quantum Computers}
 
-%%%%%%%%%%%%%%%  Author list  %%%%%%%%%%%%%%%
 \author{
   Steven~Oud \\
   Software for Science \\
@@ -54,7 +48,6 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
   \texttt{steven.oud@hva.nl} \\
 }
 
-%%%%%%%%%%%%%%    Front matter    %%%%%%%%%%%%%%
 \begin{document}
     
     \twocolumn[
@@ -205,7 +198,7 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
 
     \section{Quantum Computing for Scientific Problems} \label{sec:quantum-science}
     While we are still in the very early stage of quantum hardware development, theorists have been finding applications in a variation of (scientific) fields.
-    As of writing this, we are currently in the noisy intermediate-scale quantum (NISQ) era of quantum hardware~\cite{preskill2018quantum}.
+    As of writing this, we are currently in the Noisy Intermediate-Scale Quantum (NISQ) era of quantum hardware~\cite{preskill2018quantum}.
     These current quantum computers have about 50-100 noisy qubits.
     Due to noise, errors may occur in these quantum systems and greatly limit their ability to do useful computations.
     On this scale there are limited applications for these machines (such as exploring many-body quantum physics), and it will take more and better qubits to really change the world.
@@ -222,9 +215,9 @@ anchorcolor = black]{hyperref}	% Color links to references, figures, etc.
     Several quantum algorithms have been proposed to solve problems in chemistry more efficiently~\cite{lidar1999calculating, kassal2008polynomial, aspuru2005simulated, vqe}.
     However, currently available NISQ hardware restricts these experiments to focus only on small molecules that we can already simulate classically.
     
-    A fundamental problem in computational chemistry is finding the ground-state energy level of molecules~\cite{aspuru2005simulated}.
+    A fundamental problem in computational chemistry is finding the energy levels and states of molecules~\cite{mcardle2018quantum}.
     This has also been a main area of research in the field of quantum computational chemistry.
-    There are two well-known quantum algorithms for finding the ground-state of a molecule.
+    There are two well-known quantum algorithms for finding the energy levenls and states of a molecule.
     The quantum phase estimation algorithm (QPE) is one that offers an exponential speedup over classical algorithms.
     However, it requires a quantum computer to stay coherent for millions to billions of quantum operations, compared to the tens to hundreds achievable in the near-term.
     An alternative algorithm suited for NISQ devices named the variational quantum eigensolver (VQE) was recently proposed~\cite{vqe}.
